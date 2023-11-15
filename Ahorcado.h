@@ -32,6 +32,10 @@ class Ahorcado
         "-------------\n|           |\n|           O\n|          -|-\n|          / (\n|\n|\n|    PERDISTE!!\n" //6
     };
     friend short ronda_ahorcado(string, vector<bool>, char);
+    ~Ahorcado()
+    {
+        cout << "Minigame ended";
+    }
 };
 
 

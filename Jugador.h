@@ -15,6 +15,10 @@ public:
     }
 
     friend int index_de_jugador(vector<Jugador>, string);
+    ~Jugador()
+    {
+        cout << "Played object deleted";
+    }
 
 };
 #endif

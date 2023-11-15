@@ -43,6 +43,10 @@ public:
         int r = f(0,0, a, b);
         return (r*100.0)/(double)(a.size());
     }
+     ~TypeSong()
+    {
+        cout << "Minigame Ended";
+    }
 };
 
 

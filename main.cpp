@@ -6,12 +6,12 @@
 #include<vector>
 #include<istream>
 #include<iomanip>
-#include<Jugador.h>
-#include<Ahorcado.h>
-#include<Buscaminas.h>
-#include<SaltoContraComputadora.h>
-#include<Tetris.h>
-#include<TypeSong.h>
+#include "Jugador.h"
+#include "Ahorcado.h"
+#include"Buscaminas.h"
+#include "SaltoContraComputadora.h"
+#include "Tetris.h"
+#include "TypeSong.h"
 
 using namespace std;
 
