@@ -32,28 +32,51 @@ Here's the menu of the games, there are 8 options.
 ## Jugador.h
 
 It is mean to be the info of a single player. 
+
 containing nickname, best_score, worst_score and the games already played.
 
 ## TypeSong.h
 
 It includes 12 popular songs, the tittle and the lyrics. 
+
 We included a DP, making the lyrics written by the username the most similar possible to the original lyrics. 
+
 For example: 
+
 "Hello World" and "Hsssssssesssssssssssslssssssslssssssssssosssssssss orld" Would score every letter except the W. If the player gets a letter wrong, it won't affect the entire text. If we compare it letter by letter this case would get almost everything wrong. -> "Hello World" and "Hllo Wolrd".
+
 The functions works this way: 
-$f(i = letter i of the original lyrics, j = letter j of the user lyrics, or = original lyrics, ul = user lyrics) = letter[i]==letter ? f(i+1, j+1, ol, ul) + 1 : max(f(i+1, j, ol, ul), f(i, j+1, ol, ul))$
+
+f(i = letter i of the original lyrics, j = letter j of the user lyrics, or = original lyrics, ul = user lyrics) = letter[i]==letter ? f(i+1, j+1, ol, ul) + 1 : max(f(i+1, j, ol, ul), f(i, j+1, ol, ul))
 
 ## Ahorcado.h
 
 It has multiple sentences with 3 dificulties: Easy, Medium and Hard.
+
 And a visual representation depending in the mistakes made by the moment. 
+
 The function ronda_ahorcado can return 3 different values. 1 if the user made a mistake, 0 if the guessed the letter and -1 if the user completed the sentence. 
+
 
 ## SaltoContraComputadora.h
 
 M = the maximun size of the jump 
+
 N = the size of the line
+
 We made an algorithm that makes the computer play in the most optimal way, there are certain cases in which the users can win. 
 This algorithm is defined in the function salto_computadora. 
+
 It will try to jump to some multiple of M related to N (from the final to the beginning).  
+
+## Buscaminas.h
+
+There are 3 dificulties; Easy, Medium and Hard. 
+
+The function colocar_minas place the mines randomly until all the mines are placed. The values of the cell depends on the number of mines around, if it was selected previously and if there's a mine on it. 
+
+## Tetris.h
+
+Too many complicated functions, it simulates everything. 
+
 
