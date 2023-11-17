@@ -131,6 +131,10 @@ public:
         }
         return;
     }
+     ~Tetris()
+    {
+        cout << "Minigame Ended";
+    }
 
 };
 #endif

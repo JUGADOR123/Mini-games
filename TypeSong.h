@@ -1,6 +1,7 @@
 #ifndef TypeSong_h
 #define TypeSong_h
 
+int dp[2000][2000];
 class TypeSong
 { 
 public:
@@ -25,9 +26,8 @@ public:
         "Tequila! \nTequila! \nTequila!",
         "Yo ya estoy hasta la madre \nDe que me pongan sombrero \nEscucha entonces cuando digo \nNo me llames frijolero \nY aunque exista algun respeto \nY no metamos las narices \nNunca inflamos la moneda \nHaciendo guerra a otros paises \nTe pagamos con petroleo \nE intereses nuestra deuda \nMientras tanto no sabemos \nQuien se queda con la feria \nAunque nos hagan la fama \nDe que somos vendedores \nDe la droga que sembramos \nUstedes son consumidores \nDon't call me gringo \nYou fuckin' beaner \nStay on your side \nOf that goddamn river \nDon't call me gringo \nYou beaner \nNo me digas beaner \nMr. Punetero \nTe sacare un susto \nPor racista y culero \nNo me llames frijolero \nPinche gringo punetero \nNow I wish I had a dime \nFor every single time \nI've gotten stared down \nFor being in the wrong side of town \nAnd a rich man I'd be \nIf I had that kind of chips \nLately I wanna smack the mouths \nOf these racists \nPodras imaginarte desde afuera \nSer un mexicano cruzando la frontera \nPensando en tu familia mientras que pasas \nDejando todo lo que conoces atras \nSi tuvieras tu que esquivar las balas \nDe unos cuantos gringos rancheros \nLas seguiras diciendo good for nothing wetback? \nSi tuvieras tu que empezar de cero \nNow why don't you look down \nTo where your feet is planted \nThat U.S. soil that makes you take shit for granted \nIf not for Santa Ana, just to let you know \nThat where your feet are planted would be Mexico \nCorrecto! \nDon't call me gringo \nYou fuckin' beaner \nStay on your side \nOf that goddamn river \nDon't call me gringo \nYou beaner \nNo me digas beaner \nMr. Punetero \nTe sacare un susto \nPor racista y culero \nNo me llames frijolero \nPinche gringo punetero"
     };
-    int dp[2000][2000];
     TypeSong(){
-        forn(i, 2000) forn(j, 2000) dp[i][j] = -1;
+        memset(dp,-1,sizeof(dp));
     }
     int f(int i, int j, string &a, string &b){
         if(i==a.size() || j==b.size() ) return 0;
@@ -42,6 +42,10 @@ public:
         for(int i=0; i < a.size(); i++) for(int j = 0; j < b.size(); j++) dp[i][j]=-1;
         int r = f(0,0, a, b);
         return (r*100.0)/(double)(a.size());
+    }
+     ~TypeSong()
+    {
+        cout << "Minigame Ended";
     }
 };
 

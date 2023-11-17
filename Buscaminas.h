@@ -83,6 +83,10 @@ public:
         }
         return;
     }
+    ~Buscaminas()
+    {
+        cout << "Minigame Ended";
+    }
 
 
 };

@@ -14,7 +14,11 @@ public:
         juegos_ganados.resize(5, false);
     }
 
-    friend int index_de_jugador(vector<Jugador>, string);
+    friend int index_de_jugador(string);
+    ~Jugador()
+    {
+        cout << "Played object deleted";
+    }
 
 };
 #endif

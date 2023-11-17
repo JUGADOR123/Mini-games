@@ -17,4 +17,8 @@ class SaltoContraComputadora
         if(r==posicion) return posicion + 1;
         return r;
     }
+     ~SaltoContraComputadora()
+    {
+        cout << "Minigame Ended";
+    }
 };

@@ -6,12 +6,12 @@
 #include<vector>
 #include<istream>
 #include<iomanip>
-#include<Jugador.h>
-#include<Ahorcado.h>
-#include<Buscaminas.h>
-#include<SaltoContraComputadora.h>
-#include<Tetris.h>
-#include<TypeSong.h>
+#include "Jugador.h"
+#include "Ahorcado.h"
+#include"Buscaminas.h"
+#include "SaltoContraComputadora.h"
+#include "Tetris.h"
+#include "TypeSong.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ using namespace std;
 #define pb  push_back
 
 const int N_juegos = 5;
-string juego[N_juegos] = {
+string juego[5] = {
     "TypeSong", "Ahorcado", "Saltos", "Buscaminas", "Tetris"
 };
 
