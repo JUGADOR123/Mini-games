@@ -20,7 +20,7 @@ using namespace std;
 #define pb  push_back
 
 const int N_juegos = 5;
-string juego[N_juegos] = {
+string juego[5] = {
     "TypeSong", "Ahorcado", "Saltos", "Buscaminas", "Tetris"
 };
 
