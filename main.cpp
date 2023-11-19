@@ -21,7 +21,7 @@ using namespace std;
 
 const int N_juegos = 5;
 string juego[5] = {
-    "TypeSong", "Ahorcado", "Saltos", "Buscaminas", "Tetris"
+    "TypeSong", "Hanging", "Jumping", "Minesweeper", "Tetris"
 };
 
 vector<Jugador> jugadores;
@@ -37,13 +37,13 @@ int index_de_jugador(string jugador_buscado){
 
 int main(){
     char eleccion;
-    cout<<"...Iniciando...";
+    cout<<"...Starting...";
 
     jugadores.pb({});
     do{
         Sleep(3*seg);
         system("cls");
-        cout<<"-------------Hola!---------------\nIntroduce tu nombre de usuario (sin espacios)\n";
+        cout<<"-------------Hello!---------------\nChoose your username (no spaces)\n";
         string nombre_de_usuario;
         cin>>nombre_de_usuario;
         int g = index_de_jugador(nombre_de_usuario);
@@ -55,15 +55,15 @@ int main(){
         }
         Jugador &player = jugadores[g];
 
-        cout<<nombre_de_usuario<<", que quieres hacer?\n"<<
-        "[1]. Jugar TypeSong\n"<<
-        "[2]. Jugar Ahorcado\n"<<
-        "[3]. Jugar Saltos contra la computadora\n"<<
-        "[4]. Jugar Buscaminas\n"<<
-        "[5]. Jugar Tetris\n"<<
-        "[6]. Estadisticas\n"<<
-        "[7]. Datos por jugador\n"<<
-        "[8]. salir\n";
+        cout<<nombre_de_usuario<<", what are we doing today?\n"<<
+        "[1]. Play TypeSong\n"<<
+        "[2]. Play Hanging\n"<<
+        "[3]. Play Jumping against the computer\n"<<
+        "[4]. Play Minesweeper\n"<<
+        "[5]. Play Tetris\n"<<
+        "[6]. Statistics\n"<<
+        "[7]. Player Data\n"<<
+        "[8]. Exit\n";
         cin>>eleccion;
         system("cls");
         double r;
@@ -82,7 +82,7 @@ int main(){
 
             case '1':{
             TypeSong TS = TypeSong();
-            cout<<"Escoge la cancion\n";
+            cout<<"Choose a song:\n";
             for(int i = 0; i < TS.N_canciones; i++){
                 cout<< i+1 << ". " << TS.canciones[i] << "\n";
             }
@@ -94,8 +94,8 @@ int main(){
             }
             cancion_escogida--;
             system("cls");
-            cout << "  Liste ? \n Escribir el texto de la cancion lo mas parecido posible\n"<<
-                    "Para indicar que terminaste, escribe '$' y un enter\n";
+            cout << "  Ready? \n Type the song's lyrics as close as possible\n"<<
+                    "To indicate that you finished, type the symbol $ and press enter.\n";
 
             Sleep(seg * 3);
             system("cls");
@@ -111,25 +111,25 @@ int main(){
 
             Sleep(seg);
             system("cls");
-            cout<<"Comenzamos!"<< TS.canciones[cancion_escogida] << ":\n" <<TS.letra[cancion_escogida]<<"\n";
+            cout<<"Go!"<< TS.canciones[cancion_escogida] << ":\n" <<TS.letra[cancion_escogida]<<"\n";
             cout<<"\n";
             getline(cin, letra_usuario, '$');
 
             system("cls");
             r = TS.parecido(TS.letra[cancion_escogida], letra_usuario);
-            cout<<"Puntos conseguidos: ";
+            cout<<"Score: ";
             cout<< fixed << setprecision(2) << r;
             cout<<"\n";
 
             player.juegos_jugados[0]=true;
             player.mejor_puntuacion = max(player.mejor_puntuacion, r);
             player.peor_puntuacion = min(player.peor_puntuacion, r);
-            if(r < 40) cout<<"Para que juegas si no sabes escribir?\n";
-            else if(r < 60) cout<<"Que malo eres!\n";
-            else if(r < 80) cout<<"Lo podrias hacer mejor\n";
+            if(r < 40) cout<<"Wow you typed so badly, why even bother playing?\n";
+            else if(r < 60) cout<<"You are not good!\n";
+            else if(r < 80) cout<<"You can improve\n";
             else if(r<99) cout<<"Nice\n";
             else{
-                cout<<"Perfecto! Deberias probar escribir con mayor regularidad\n";
+                cout<<"Perfect! You should play more often.\n";
                 player.juegos_ganados[0]=true;
             }
             break;
@@ -137,7 +137,7 @@ int main(){
 }
             case '2':{
             Ahorcado ahorcado; 
-            cout<<"Escoge la dificultad\n1.Facil\n2.Medio\n3.Dificil\n";
+            cout<<"Choose difficulty\n1.Easy\n2.Medium\n3.Hard\n";
             int dificultad;
             cin>>dificultad;
             dificultad--;
@@ -161,11 +161,11 @@ int main(){
             double puntaje = 0;
             player.juegos_jugados[1] = true;
             if(errores == ahorcado.errores_ahorcado-1){
-                cout<<"La respuesta era: "<<ahorcado.palabras[dificultad][palabra]
-                    <<"\nERES PESIMO EN LAS PALABRAS, LEE MAS POR FAVOR!\n";
+                cout<<"The answer is: "<<ahorcado.palabras[dificultad][palabra]
+                    <<"\nYou are so bad reading, take more time to focus!\n";
             }else{
                 puntaje = 100 - (errores * (100.0/7.0));
-                cout<<"Ganaste, bien hecho\nTu puntaje es de: "<< fixed << setprecision(2) << puntaje <<"\n";
+                cout<<"YOu won!!\nYour score is: "<< fixed << setprecision(2) << puntaje <<"\n";
                 player.juegos_ganados[1] = true;
             }
             player.mejor_puntuacion = max(player.mejor_puntuacion, puntaje);
@@ -179,10 +179,10 @@ int main(){
 
             case '3':
 {
-            cout<<"El juego trata de lo siguiente (vas a jugar contra la computadora). \n"<<
-            "Saltaras una cantidad menor a M pasos, luego la computadora, luego tu y asi sucesivamente. Gana quien logre llegar mas alla del final, que sera una recta de N espacios\n" <<
-            "Si escoges en el salto un valor mayor que M o menor que 1, pierdes automaticamente\n"<<
-            "Para darte chance, tu escogeras el valor de la N y de la M\n";
+            cout<<"The game consists of the following: (you are playing against the computer). \n"<<
+            "You will jump a number of less than M steps, then the computer, then you, and so on. The winner is the one who gets further than the end, which will be a line of N spaces.\n" <<
+            "If you choose in the jump a value greater than M or less than 1, you lose automatically\n"<<
+            "To give you a chance, you will choose the value of the N and the M\n";
             int N, M;
             cin>>N>>M;
             system("cls");
@@ -196,7 +196,7 @@ int main(){
                 cin>>saltos;
                 system("cls");
                 if(saltos > M){
-                    cout<<"PIERDES por TRAMPOSO!\n";
+                    cout<<"You loose for being a cheater!\n";
                     break;
                 }
                 posicion += saltos;
@@ -207,18 +207,18 @@ int main(){
                 saltoContraComputadora.salto(posicion);
                 int h = saltoContraComputadora.salto_computadora(posicion) - posicion;
                 Sleep(seg);
-                cout<<"La computadora salta: "<< h <<"\n";
+                cout<<"Computer jumps: "<< h <<"\n";
                 posicion += h;
                 saltoContraComputadora.salto(posicion);
                 Sleep(2 * seg);
             }
             player.juegos_jugados[2] = true;
             if(!gana){
-                cout<<"JAJAJAJAJA te gano un codigo de una mecatronica! Piensa un poco mas la proxima\n";
+                cout<<"Computer wins!!\n";
                 player.peor_puntuacion = 0;
             }
             else{
-                cout<<"Has ganado!! Muy listo\n";
+                cout<<"You won, so smart\n";
                 player.juegos_ganados[2] = true;
                 player.mejor_puntuacion = 100;
             }

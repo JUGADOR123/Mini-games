@@ -10,17 +10,17 @@ class Ahorcado
     Ahorcado(){}
     string palabras[3][10] = {
         // facil
-        "persona", "extender", "mirador", "elocuente", "celular",
-        "murcielago", "proxeneta", "yoyo", "literal", "juego",
+        "person", "extend", "lookout", "eloquent", "cellular",
+        "bat", "pimp", "yo-yo", "literal", "game",
         // medio
-        "no lo permito", "no existe el bajon", "politica mexicana", "los negros ya no se venden", "las mujeres tienen derechos",
-        "necesito medicina", "tengo gripe", "me duele la garganta", "de esta no salgo", "tengo fe",
+        "not permitted", "rights do not exist", "mexcican politics", "no longer being sold", "people have to work",
+        "I need medicine", "I have the flu", "I have a sore throat", "I'm not getting out of this", "I have faith",
         // dificil
-        "ya no quiero escuchar mas excusas", "me dijiste que me amabas",
-        "pero fueron todas mentiras", "endulzarme el oido",
-        "ilustrame y dime", "que fui yo para ti en realidad",
-        "una simple distraccion", "alguien con un carro costoso",
-        "no me interesa saber", "yo ya estoy bien asi sola"
+        "I don't want to hear any more excuses", "you told me you loved me", "but they were all lies", "to sweeten my ears", "to sweeten my ears",
+        "but they were all lies", "sweeten my ears",
+        "enlighten me and tell me," "what was I really to you,"
+        "a simple distraction," "someone with an expensive car,"
+        "I don't care to know", "I'm fine on my own", "I'm fine on my own", "I'm not interested in knowing"
     };
     string ahorcado[7] = {
         "-------------\n|           |\n|\n|\n|\n|\n|\n|\n",//0
