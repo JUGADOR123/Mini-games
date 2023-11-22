@@ -228,9 +228,9 @@ int main(){
             // Buscaminas
             case '4':{
 
-            cout<<"BIENVENIDO A BUSCAMINAS \n";
-            cout<<"Elije la dificultad \n";
-            cout<<"1.-Nivel facil \n"<<"2.-Nivel medio\n"<<"3.-Nivel avanzado\n";
+            cout<<"Welcome to minesweeper \n";
+            cout<<"Choose difficulty \n";
+            cout<<"1.-Easy \n"<<"2.-Medium\n"<<"3.-Hard\n";
             
 
             cin>>nn;
@@ -275,7 +275,7 @@ int main(){
             while(bombas_descubiertas<buscaminas.minas){
                 system("cls");
                 buscaminas.mostrar_tablero();
-                cout<<"Si quiere indicar que hay una bomba, escriba [q].\nDe lo contrario escriba [e]\nEscoja la coordenada (x, y)\n";
+                cout<<"To indicate a bomb, press [q].\nOhterwise [e]\nChoose coordinate (x, y)\n";
                 char intension; cin>>intension;
                 int x_b, y_b; cin>>x_b>>y_b;
                 if(buscaminas.tablero[x_b][y_b]==-2 || buscaminas.tablero[x_b][y_b]>9) continue;
@@ -290,9 +290,9 @@ int main(){
                 if(buscaminas.tablero[x_b][y_b]==10) buscaminas.expandir(x_b, y_b);
             }
 
-            if(bombas_descubiertas<buscaminas.minas) {cout<<"Perdiste!\nConseguiste descubrir "<<bombas_descubiertas<<" bombas";}
+            if(bombas_descubiertas<buscaminas.minas) {cout<<"You lost!\nYou found  "<<bombas_descubiertas<<" bombs";}
             else {
-                cout<<"Ganaste!\nFelicidades";
+                cout<<"Congrats! you won!";
                 player.juegos_ganados[3] = true;
             }
             player.juegos_jugados[3] = true;
@@ -306,20 +306,20 @@ int main(){
             // Tetris
             case '5':{
 
-            cout << "Jugaras Tetris version Chyaru!\n"<<
-                    "Se te mostrara la pieza, y debes decidir si cambiar de pieza\n" <<
-                    "y con las flechitas moverlo de izquierda a derecha.\n"<<
-                    "Tambien puedes decidir el tamano del espacio de Juego, con N y M (con valores menores a 50)\n";
+            cout << "You will play Tetris version Chyaru!\n"<<
+                    "You will be shown the piece, and you must decide whether to change piece\n" <<
+                    "and with the little arrows move it from left to right.\n"<<
+                    "You can also decide the size of the game space, with N and M (with values less than 50)\n"<<
             Sleep(7 * seg);
-            cout << "Con la tecla 'w' cambias de pieza (no puedes hacer mas de 2 cambios seguidos)\n"<<
-                    "Con la tecla 'a' mueves la pieza a la izquierda\n" <<
-                    "Con la tecla 'd' mueves la pieza a la derecha\n" <<
-                    "Con la tecla 'q' giras la pieza\n"<<
-                    "Con la tecla 's' confirmas, la pieza se acomodara\n";
+            cout << "With the 'w' key you change the piece (you can't make more than 2 changes in a row\n"<<
+                    "With the 'a' key you move the piece to the left\n" <<
+                    "With the 'd' key you move the piece to the right\n" <<
+                    "With the 'q' key you rotate the part\n"<<
+                    "Press the 's' key to confirm, the workpiece will be aligned\n";
             Sleep(5 * seg);
             int N, M;
             while(true){
-                cout<<"\n\nIntroduce N y M (menores que 50 y mayores que 5)";
+                cout<<"\n\nSelect M and N (below 50 and above 5)";
                 cin>>N>>M;
                 if(N<=50 && M<=50 && N>=5 && M>=5) break;
             }
@@ -355,12 +355,12 @@ int main(){
             }
             Sleep(seg);
             system("cls");
-            cout<<"El juego ha acabado!\nCompletaste "<<filas_completadas<<" filas\n";
+            cout<<"Game is over!\nYou completed "<<filas_completadas<<" rows\n";
             player.juegos_jugados[4] = true;
             player.mejor_puntuacion = max(player.mejor_puntuacion, (double)(filas_completadas));
             player.peor_puntuacion = min(player.peor_puntuacion, (double)(filas_completadas));
             if(filas_completadas==100){
-                cout<<"Ganaste\n!Felicidades";
+                cout<<"You won\n!Congrats\n";
                 player.juegos_ganados[4] = true;
             }
 }
@@ -370,27 +370,27 @@ int main(){
         case '6':{
 
         for(int i = 0; i < jugadores.size(); i++){
-            cout<<"Jugador "<<jugadores[i].Nickname<<"\n";
+            cout<<"Player "<<jugadores[i].Nickname<<"\n";
             vector<string> ganados, jugados;
             for(int j = 0; j < N_juegos; j++){
                 if(jugadores[i].juegos_jugados[j]) jugados.push_back(juego[j]);
                 if(jugadores[i].juegos_ganados[j]) ganados.push_back(juego[j]);
             }
             if(jugados.size()==0){
-                cout<<"Sin juegos\n";
+                cout<<"No games\n";
             }else{
-                cout<<"Los juegos jugados son:\n";
+                cout<<"Games played:\n";
                 for(int j = 0; j < jugados.size(); j++, cout<<"\n")
                     cout<<jugados[j];
             }
             if(ganados.size()==0){
-                cout<<"No ha ganado ningun juego\n";
+                cout<<"No games won\n";
             }else{
-                cout<<"Los juegos ganados son:\n";
+                cout<<"Games won:\n";
                 for(int j = 0; j < ganados.size(); j++, cout<<"\n")
                     cout<<ganados[j];
             }
-            if(jugados.size()) cout<< "Mejor puntaje: "<<jugadores[i].mejor_puntuacion<<"\n" << "Peor puntaje: "<<jugadores[i].peor_puntuacion<<"\n";
+            if(jugados.size()) cout<< "Best score: "<<jugadores[i].mejor_puntuacion<<"\n" << "Worst Score: "<<jugadores[i].peor_puntuacion<<"\n";
             cout<<"\n\n\n";
         }
         Sleep(10*seg);
@@ -400,11 +400,11 @@ int main(){
         // Datos por jugador
         case '7':{
 
-        cout<<"Ingrese el nombre de quien desea ver las estadisticas\n";
+        cout<<"Choose username you want to see the stats\n";
         string jugador_buscado; cin>>jugador_buscado;
         int g = index_de_jugador(jugador_buscado);
         if(g==-1){
-            cout<<"No se encontró al jugador\n";
+            cout<<"No played found\n";
             break;
         }
         Jugador player = jugadores[g];
@@ -414,25 +414,25 @@ int main(){
             if(player.juegos_ganados[j]) ganados.push_back(juego[j]);
         }
         if(jugados.size()==0){
-            cout<<"Sin juegos\n";
+            cout<<"No games\n";
         }else{
-            cout<<"Los juegos jugados son:\n";
+            cout<<"Games played:\n";
             for(int j = 0; j < jugados.size(); j++, cout<<"\n")
                 cout<<jugados[j];
         }
         if(ganados.size()==0){
-            cout<<"No ha ganado ningun juego\n";
+            cout<<"No games won\n";
         }else{
-            cout<<"Los juegos ganados son:\n";
+            cout<<"Games won:\n";
             for(int j = 0; j < ganados.size(); j++, cout<<"\n")
                 cout<<ganados[j];
         }
-        if(jugados.size()) cout<< "Mejor puntaje: "<<player.mejor_puntuacion<<"\n" << "Peor puntaje: "<<player.peor_puntuacion<<"\n";
+        if(jugados.size()) cout<< "Best Score: "<<player.mejor_puntuacion<<"\n" << "Worst score: "<<player.peor_puntuacion<<"\n";
         cout<<"\n\n\n";
 }
         break;
     }
     }while(eleccion!='8');
-    cout<<"se cambia";
+    cout<<"something";
     return 0;
 }
