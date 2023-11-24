@@ -39,7 +39,7 @@ int main(){
     char eleccion;
     cout<<"...Iniciando...";
 
-    jugadores.pb({});
+    //jugadores.pb({});
     do{
         Sleep(3*seg);
         system("cls");
