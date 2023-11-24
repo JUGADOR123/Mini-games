@@ -17,7 +17,7 @@ public:
     friend int index_de_jugador(string);
     ~Jugador()
     {
-        cout << "Played object deleted";
+        cout << "Player object deleted";
     }
 
 };
